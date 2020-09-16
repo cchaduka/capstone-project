@@ -39,9 +39,9 @@ pipeline {
                   withAWS(credentials: 'aws-jenkins-access-capstone', region: 'us-west-2') {
                       sh "aws eks --region us-west-2 update-kubeconfig --name capstonecluster"
                       sh "kubectl config use-context arn:aws:eks:us-west-2:122942361001:cluster/capstonecluster"
-                      sh "kubectl apply -f deployment/deployment-script.yml"
-                      sh "kubectl apply -f deployment/load-balancer.yml"
                       sh "kubectl set image deployment/eks-capstone-app eks-capstone-app=cchaduka/eks-capstone-app:latest"
+                      sh "kubectl apply -f deployment/deployment-script.yml"
+                      sh "kubectl apply -f deployment/load-balancer.yml"                      
                       sh "kubectl get nodes"
                       sh "kubectl get deployment"
                       sh "kubectl get pod -o wide"
