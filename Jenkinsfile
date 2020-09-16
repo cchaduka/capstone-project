@@ -18,7 +18,7 @@ pipeline {
          }
          stage('Push Docker Image') {
               steps {
-                  withDockerRegistry([url: "", credentialsId: "docker-hub"]) {
+                  withDockerRegistry([url: "", credentialsId: "jenkins-dockerhub-access-capstone"]) {
                       sh "docker tag eks-capstone-app cchaduka/eks-capstone-app"
                       sh 'docker push cchaduka/eks-capstone-app'
                   }
@@ -27,7 +27,7 @@ pipeline {
          stage('Deploying') {
               steps{
                   echo 'Deploying to AWS...'
-                  withAWS(credentials: 'aws', region: 'us-west-2') {
+                  withAWS(credentials: 'aws-jenkins-access-capstone', region: 'us-west-2') {
                       sh "aws eks --region us-west-2 update-kubeconfig --name capstonecluster"
                       sh "kubectl config use-context arn:aws:eks:us-west-2:122942361001:cluster/capstonecluster"
                       sh "kubectl set image cchaduka/eks-capstone-app eks-capstone-app=cchaduka/eks-capstone-app:latest"
