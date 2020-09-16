@@ -7,6 +7,8 @@ This project was done with guidance from the following resources:
 https://medium.com/@Thegaijin/ci-cd-with-jenkins-docker-and-kubernetes-26932c3a1ea
 https://medium.com/@andresaaap/jenkins-pipeline-for-blue-green-deployment-using-aws-eks-kubernetes-docker-7e5d6a401021
 
+The Web App was adapted from a template found at https://templatemo.com/tm-530-mini-profile
+
 1. Launch an EC2 instance
 2. Install Jenkins
 3. Install the necessary plugins, esp. Blue Ocean and AWS related ones
