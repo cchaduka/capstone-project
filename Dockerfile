@@ -1,5 +1,6 @@
 # Build a container running nginx
 
+# hadolint ignore=DL3007
 FROM nginx:latest
 
 # Copy our web application to the correct directory in the container
