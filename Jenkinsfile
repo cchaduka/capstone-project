@@ -32,7 +32,7 @@ pipeline {
                       sh "kubectl config use-context arn:aws:eks:us-west-2:122942361001:cluster/capstonecluster"
                       sh "kubectl apply -f deployment/deployment-script.yml"
                       sh "kubectl apply -f deployment/load-balancer.yml"
-                      sh "kubectl set image cchaduka/eks-capstone-app eks-capstone-app=cchaduka/eks-capstone-app:latest"
+                      sh "kubectl set image deployment/eks-capstone-app eks-capstone-app=cchaduka/eks-capstone-app:latest"
                       sh "kubectl get nodes"
                       sh "kubectl get deployment"
                       sh "kubectl get pod -o wide"
