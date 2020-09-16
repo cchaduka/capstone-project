@@ -52,7 +52,8 @@ pipeline {
         stage("Cleaning up") {
               steps{
                     echo '...==Cleaning up local Docker system==...'
-                    sh "docker system prune"
+                    sh "chmod 755 ./scripts/system-cleanup.sh"
+                    sh "./scripts/system-cleanup.sh"
               }
         }
      }
