@@ -7,4 +7,3 @@ cd ~
 
 # Build the docker image
 docker build --tag ${docker_image_name} .
-
